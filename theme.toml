@@ -1,0 +1,17 @@
+name = "X Hugo"
+license = "MIT"
+licenselink = "https://github.com/imroc/xhugo/blob/master/LICENSE"
+description = "A extremely beautiful theme for hugo"
+tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive"]
+features = ["blog", "themes", "disqus", "minimal", "responsive"]
+min_version = 0.17
+
+[author]
+    name = "roc"
+    homepage = "https://imroc.io"
+
+# If Porting existing theme
+[original]
+    author =  "dattali"
+    homepage = "http://deanattali.com/beautiful-jekyll/"
+    repo = "https://github.com/daattali/beautiful-jekyll"

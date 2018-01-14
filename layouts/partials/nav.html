@@ -1,0 +1,75 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">{{ i18n "toggleNavigation" }}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        {{ range .Site.Menus.main.ByWeight }}
+          {{ if .HasChildren }}
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">{{ .Name }}</a>
+              <div class="navlinks-children">
+                {{ range .Children }}
+                <!-- 取消i18n URL
+                  <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                -->
+                  <a href="{{ .URL | absURL }}">{{ .Name }}</a>
+                {{ end }}
+              </div>
+            </li>
+          {{ else }}
+            <li>
+              <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+              <!-- 如果使用absURL的话所有的链接最后面要加还是那个/才能访问，但是使用relLangURL在config.tom里设置https地址就不会生效-->
+              <!--
+              <a title="{{ .Name }}" href="{{ .URL  | absURL }}">{{ .Name }}</a>
+              -->
+            </li>
+          {{ end }}
+        {{ end }}
+
+        {{ if .Site.IsMultiLingual }}
+          {{ if ge (len .Site.Languages) 3 }}
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">{{ i18n "languageSwitcherLabel" }}</a>
+              <div class="navlinks-children">
+                {{ range .Site.Languages }}
+                  {{ if not (eq .Lang $.Site.Language.Lang) }}
+                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                  {{ end }}
+                {{ end }}
+              </div>
+            </li>
+          {{ else }}
+            <li>
+              {{ range .Site.Languages }}
+                {{ if not (eq .Lang $.Site.Language.Lang) }}
+                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                {{ end }}
+              {{ end }}
+            </li>
+          {{ end }}
+        {{ end }}
+
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        {{ if isset .Site.Params "logo" }}
+          <a title="{{ .Site.Title }}" href="{{ "" | absLangURL }}">
+            <img class="avatar-img" src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}" />
+          </a>
+        {{ end }}
+      </div>
+    </div>
+
+  </div>
+</nav>
