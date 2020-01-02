@@ -1,50 +1,49 @@
 <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          {{ range .Site.Data.beautifulhugo.social.social_icons }}
-            {{- if isset $.Site.Author .id }}
-              <li>
-                <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa {{ .icon }} fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            {{- end -}}
-          {{ end }}
-          {{ if .Site.Params.rss }}
-          <li>
-            <a href="{{ "index.xml" | absLangURL }}" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-        <p class="credits copyright text-muted">
-        &copy;2017
-          {{ if .Site.Author.name }}
-            {{ if .Site.Author.website }}
-              <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
-            {{ else }}
-              {{ .Site.Author.name }}
-            {{ end }}          
-          {{ end }}
-          {{ if .Site.Title }}
+  <div id="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center footer-links">
+            {{ range .Site.Data.beautifulhugo.social.social_icons }}
+              {{- if isset $.Site.Author .id }}
+                <li>
+                  <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa {{ .icon }} fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+              {{- end -}}
+            {{ end }}
+            {{ if .Site.Params.rss }}
+            <li>
+              <a href="{{ "index.xml" | absLangURL }}" title="RSS">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+          <p class="credits copyright text-muted">
+          &copy;2017-2019
+            {{ if .Site.Author.name }}
+              {{ if .Site.Author.website }}
+                <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+              {{ else }}
+                {{ .Site.Author.name }}
+              {{ end }}
+            {{ end }}
             &nbsp;&bull;&nbsp;
-            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-          {{ end }}
-        </p>
-        <!-- Please don't remove this, keep my open source work credited :) -->
-        <p class="credits theme-by text-muted">
-          {{ i18n "poweredBy" . | safeHTML }}
-          {{ with .Site.Params.commit }}&nbsp;&bull;&nbsp;[<a href="{{.}}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>]{{ end }}
-        </p>
+            {{ .Site.LastChange.Format "January 2,2006" }}
+            updated
+          </p>
+          <p class="credits theme-by text-muted">
+            {{ i18n "poweredBy" . | safeHTML }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
