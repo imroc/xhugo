@@ -55,26 +55,8 @@
   </div>
 </footer>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.2/photoswipe.js"></script>
-<script src="{{ "js/auto-render.min.js" | absURL }}"></script>
-<script src="{{ "js/main.js" | absURL }}"></script>
-<script src="https://imroc.io/static/prism/prism.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.7.1/katex.min.js"></script>
-<script> renderMathInElement(document.body); </script>
-{{ if .Site.Params.gcse }}
-<script>
-  (function() {
-    var cx = '{{ .Site.Params.gcse }}';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-{{ end }}
+<!-- JS from hugo pipes -->
+{{- partial "js-assets.html" . -}}
+<script src='{{ .Scratch.Get "appjs" }}' integrity='{{ .Scratch.Get "appjsintegrity" }}'></script>
 
 {{- partial "footer_custom.html" . }}

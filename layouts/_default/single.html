@@ -36,18 +36,8 @@
                 {{ end }}
             </div>
             {{ end }}
-            <!-- post metadata-->
-            {{ if isset .Params "postmeta" }}
-              {{ else }}
-            {{ partial "postmeta.html" . }}
-            {{ end }}
-            </div>
-            <!-- gitments -->
-			{{ with .Site.Params.comments.github }}
-               {{ partial "gitments.html" . }}
-			{{end}}
         </div>
     </div>
-    </section>
+    {{ partial "gitalk.html" . }}
 </div>
 {{ end }}

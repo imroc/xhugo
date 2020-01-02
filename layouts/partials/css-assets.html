@@ -1,0 +1,18 @@
+<!-- Bootstrap Core CSS -->
+{{- $bootcss := resources.Get "css/bootstrap.min.css" -}}
+
+<!-- Syntax CSS -->
+<!-- {{- $syntaxcss := resources.Get "css/syntax.css" -}} -->
+
+<!-- Theme CSS -->
+{{- $maincss := resources.Get "css/main.css" -}}
+
+<!-- Custom asset css -->
+{{- $indexScratch := newScratch -}}
+{{- $indexScratch.Add "cssassets" (slice $bootcss $maincss) -}}
+
+<!-- Bundle css -->
+{{- $appcss := $indexScratch.Get "cssassets" | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint -}}
+{{- .Scratch.Set "appcss" $appcss.RelPermalink -}}
+{{- .Scratch.Set "appcssintegrity" $appcss.Data.Integrity -}}
+

@@ -763,7 +763,7 @@ pre code {
     word-wrap: break-word;
 }
 
-pre.highlight,
+/* pre.highlight,
 .highlight>pre,
 td.code pre {
     background: #FAFAFA;
@@ -772,7 +772,7 @@ td.code pre {
     background-size: 3em 3em;
     background-position: 0px 10px;
     border-left: 7px solid #444;
-}
+} */
 
 code table,
 code table td,
@@ -785,9 +785,9 @@ td.gutter pre {
     background-color: #fff;
 }
 
-.highlight>pre {
+/* .highlight>pre {
     padding: 0;
-}
+} */
 
 td.code pre {
     border-width: 0 0 0 2px;
@@ -858,4 +858,32 @@ aside.toc{
   padding-left: 12px;
   margin: 0;
   font-size: small;
+}
+
+
+.highlight {
+    position: relative;
+}
+
+.highlight pre {
+    padding-right: 75px;
+}
+
+.highlight-copy-btn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    border: 0;
+    border-radius: 4px;
+    padding: 1px;
+    font-size: 0.7em;
+    line-height: 1.8;
+    color: #fff;
+    background-color: #777;
+    min-width: 55px;
+    text-align: center;
+}
+
+.highlight-copy-btn:hover {
+    background-color: #666;
 }
