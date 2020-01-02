@@ -3,16 +3,15 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <!-- post metadata-->
-            {{ if isset .Params "postmeta" }}
-              {{ else }}
             {{ partial "postmeta.html" . }}
-            {{ end }}
+
             <article role="main" class="blog-post" itemprop="articleBody" id="content">
                 {{ partial "toc.html" . }}
                 {{ .Content }}
             </article>
 
             <ul class="pager blog-pager">
+
                 {{ if .PrevInSection }}
                 <li class="previous">
                     <a href="{{ .PrevInSection.Permalink }}" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr; {{ i18n "previousPost" }}</a>
@@ -23,20 +22,14 @@
                 </li>
                 {{ end }}
             </ul>
-            {{ if isset .Params "seealso" }}
-			{{ else }}
-            <div>
-                {{ $related := .Site.RegularPages.Related . | first 5 }} {{ with $related }}
-                <h2>See Also</h2>
-                <ul>
-                    {{ range . }}
-                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                    {{ end }}
-                </ul>
-                {{ end }}
-            </div>
-            {{ end }}
-          {{ partial "gitalk.html" . }}
+
+          {{ if not (.Params.unrelated) }}
+            {{ partial "related.html" . }}
+          {{ end }}
+
+          {{ if and (.Site.Params.gitcomment) (isset .Params "slug") }}
+            {{ partial "gitalk.html" . }}
+          {{ end }}
         </div>
     </div>
 </div>
