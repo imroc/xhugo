@@ -116,7 +116,7 @@ img {
 
 .navbar-custom {
     /* background: #F5F5F5; */
-    background: #333;
+    background: #24292e;
     border-bottom: 1px solid #EAEAEA;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -257,7 +257,7 @@ img {
 
 @media only screen and (max-width: 767px) {
     .navbar-custom .nav .navlinks-container.show-children {
-        background: #eee;
+        background: #404040;
     }
     .navbar-custom .nav .navlinks-container.show-children .navlinks-children {
         display: block;
@@ -269,7 +269,7 @@ img {
         text-align: center;
     }
     .navbar-custom .nav .navlinks-container:hover {
-        background: #eee;
+        background: #24292e;
     }
     .navbar-custom .nav .navlinks-container:hover .navlinks-children {
         display: block;
@@ -320,7 +320,7 @@ footer .theme-by {
 }
 
 footer #copyright {
-    background: #333;
+    background: #24292e;
     color: #ccc;
     padding: 50px 0;
     font-size: 13px;
