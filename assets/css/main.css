@@ -137,7 +137,8 @@ img {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-    color: #2a55f4;
+    color: #fff;
+    background-color: #0366d6;
 }
 
 .navbar-custom .navbar-brand-logo {
@@ -282,7 +283,8 @@ img {
         border-width: 0 1px 1px;
     }
     .navbar-custom .nav .navlinks-container .navlinks-children a:hover {
-        background: #bddefb;
+        color: #fff;
+        background-color: #0366d6;
     }
 }
 
