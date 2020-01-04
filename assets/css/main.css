@@ -755,6 +755,9 @@ table tr td :last-child {
 
 .highlight pre code {
     white-space: pre;
+    word-wrap: normal;
+    word-spacing: normal;
+    word-break: normal;
 }
 
 /* --- Social media sharing section --- */
