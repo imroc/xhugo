@@ -10,6 +10,11 @@
 {{- $indexScratch := newScratch -}}
 {{- $indexScratch.Add "cssassets" (slice $bootcss $maincss) -}}
 
+{{ if .Site.Params.reward }}
+    {{- $rewardcss := resources.Get "css/reward.css" -}}
+    {{- $indexScratch.Add "cssassets" (slice $rewardcss) -}}
+{{ end }}
+
 <!-- Bundle css -->
 {{- $appcss := $indexScratch.Get "cssassets" | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint -}}
 {{- .Scratch.Set "appcss" $appcss.RelPermalink -}}

@@ -21,6 +21,10 @@
                 {{ end }}
             </ul>
 
+          {{ if .Site.Params.reward }}
+            {{ partial "reward.html" }}
+          {{ end }}
+
           {{ if not (.Params.unrelated) }}
             {{ partial "related.html" . }}
           {{ end }}
