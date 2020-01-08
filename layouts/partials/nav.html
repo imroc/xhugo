@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
         <span class="sr-only">{{ i18n "toggleNavigation" }}</span>
@@ -58,9 +58,15 @@
           {{ end }}
         {{ end }}
 
+        {{ if isset .Site.Params "algolia" }}
+        <li>
+          <a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+            <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+          </a>
+        </li>
+        {{ end }}
       </ul>
     </div>
-
     <div class="avatar-container">
       <div class="avatar-img-border">
         {{ if isset .Site.Params "logo" }}
@@ -70,6 +76,24 @@
         {{ end }}
       </div>
     </div>
-
   </div>
 </nav>
+
+{{ if isset .Site.Params "algolia" }}
+  <div id="modalSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">搜索</h4>
+        </div>
+        <div class="modal-body">
+            {{ partial "search.html" . }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

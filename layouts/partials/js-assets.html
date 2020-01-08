@@ -1,13 +1,13 @@
 <!-- Core JS -->
-{{- $jquery := resources.Get "js/jquery.min.js" -}}
-{{- $bootjs := resources.Get "js/bootstrap.min.js" -}}
+<!-- {{- $jquery := resources.Get "js/jquery.min.js" -}} -->
+<!-- {{- $bootjs := resources.Get "js/bootstrap.min.js" -}} -->
 
 <!-- Main JS -->
 {{- $mainjs := resources.Get "js/main.js" -}}
 
 <!-- Custom asset js -->
 {{- $indexScratch := newScratch -}}
-{{- $indexScratch.Add "jsassets" (slice $jquery $bootjs $mainjs) -}}
+{{- $indexScratch.Add "jsassets" (slice $mainjs) -}}
 {{ if .Site.Params.reward }}
     {{- $rewardjs := resources.Get "js/reward.js" -}}
     {{- $indexScratch.Add "jsassets" (slice $rewardjs) -}}

@@ -90,7 +90,7 @@ var main = {
       function addCopyButton(containerEl) {
         var copyBtn = document.createElement("button");
         copyBtn.className = "highlight-copy-btn";
-        copyBtn.textContent = "Copy";
+        copyBtn.textContent = window.copyText;
 
         var codeEl = containerEl.firstElementChild;
         copyBtn.addEventListener('click', function () {
@@ -99,7 +99,7 @@ var main = {
             document.execCommand('copy');
             selection.removeAllRanges();
 
-            flashCopyMessage(copyBtn, 'Copied!')
+            flashCopyMessage(copyBtn, window.copiedText)
           } catch (e) {
             console && console.log(e);
             flashCopyMessage(copyBtn, 'Failed :\'(')

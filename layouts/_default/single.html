@@ -2,7 +2,18 @@
 <div class="container" role="main" itemscope itemtype="http://schema.org/Article">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
+            {{if .Params.tags }}
+            <div>
+                <!-- <h5 id="wc" style="margin-top: -5px;">{{ .WordCount }} 字|阅读大约需要花 {{ .ReadingTime }} 分钟</h5> -->
+                <h5 id="tags" style="margin-top: 30px;">{{ i18n "tag" }}
+                  {{ range $index, $tag := .Params.tags }}
+                      <a
+                        href='{{ $.Site.LanguagePrefix | absURL | replaceRE "[^/]$" "${0}/" }}tags/{{ $tag | urlize }}/'>{{ $tag }}</a>
+                      &nbsp;
+                  {{ end }}
+                </h5>
+            </div>
+            {{ end }}
             <article role="main" class="blog-post" itemprop="articleBody" id="content">
                 {{ partial "toc.html" . }}
                 {{ .Content }}
@@ -29,7 +40,7 @@
             {{ partial "related.html" . }}
           {{ end }}
 
-          {{ if and (.Site.Params.gitcomment) (isset .Params "slug") }}
+          {{ if and (.Site.Params.gitcomment) }}
             {{ partial "gitalk.html" . }}
           {{ end }}
         </div>

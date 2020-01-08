@@ -1,6 +1,6 @@
 # Content
 - id: dateFormat
-  translation: "January 2, 2006"
+  translation: "2006-01-02"
 - id: postedOnDate
   translation: "发表于 {{ .Count }}"
 - id: translationsLabel
@@ -38,3 +38,11 @@
 - id: gcseClose
   translation: "关闭"
 
+- id: tag
+  translation: "标签："
+- id: copy
+  translation: "复制"
+- id: copied
+  translation: "已复制!"
+- id: introduce
+  translation: "大家好，我是 roc，专注云原生技术领域，不定期分享容器、Kubernetes、Service Mesh 等相关干货。"

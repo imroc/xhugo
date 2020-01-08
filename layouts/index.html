@@ -2,7 +2,7 @@
 {{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) -}}
   <div role="main" class="container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="col-lg-8 col-md-10">
         {{ with .Content }}
           <div class="well">
             {{.}}
@@ -34,7 +34,8 @@
               {{ if .Params.tags }}
                 <span class="post-meta">
                 {{ range .Params.tags }}
-                  #<a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+                  #<a
+                    href='{{ $.Site.LanguagePrefix | absURL | replaceRE "[^/]$" "${0}/" }}tags/{{ . | urlize }}/'>{{ . }}</a>&nbsp;
                 {{ end }}
                 </span>
               {{ end }}
@@ -56,11 +57,38 @@
             {{ end }}
           </ul>
         {{ end }}
+        <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {{ template "_internal/pagination.html" . }}
+          {{ range $paginator.Pages }}
+          {{ end }}
+        </div>
       </div>
-      <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        {{ template "_internal/pagination.html" . }}
-        {{ range $paginator.Pages }}
-        {{ end }}
+      <div class="col-lg-4 col-md-2">
+        <div class="sidebar-wrap sidebar-about">
+          <div class="about-img">
+            <img src="/img/avatar.jpg" alt="roc" class="rounded-circle">
+          </div>
+          <p class="about-text">
+            {{ i18n "introduce" }}
+          </p>
+          {{ if eq .Language.Lang "zh" }}
+          <img src="/img/geek_daily_qrcode.jpg" alt="极客日常">
+          <p class="about-text">
+            扫码关注 "极客日常" 公众号可接收文章推送。
+          </p>
+          {{ end }}
+        </div>
+        <!-- 标签 -->
+        <div class="sidebar-block">
+          <h4 class="sidebar-title">标签</h4>
+          <div class="list-unstyled tags-cloud">
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            {{ if gt $taxonomy.Count 0 }}
+            <a href="/tags/{{ $name | urlize }}"><i class="fa fa-tags"></i> {{ $name }}({{ $taxonomy.Count }})</a>
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
       </div>
     </div>
   </div>

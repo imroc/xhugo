@@ -1,14 +1,15 @@
 <!-- Bootstrap Core CSS -->
-{{- $bootcss := resources.Get "css/bootstrap.min.css" -}}
+<!-- {{- $bootcss := resources.Get "css/bootstrap.min.css" -}} -->
 
 <!-- Syntax CSS -->
 
 <!-- Theme CSS -->
 {{- $maincss := resources.Get "css/main.css" -}}
+{{- $searchcss := resources.Get "css/search.css" -}}
 
 <!-- Custom asset css -->
 {{- $indexScratch := newScratch -}}
-{{- $indexScratch.Add "cssassets" (slice $bootcss $maincss) -}}
+{{- $indexScratch.Add "cssassets" (slice $maincss $searchcss) -}}
 
 {{ if .Site.Params.reward }}
     {{- $rewardcss := resources.Get "css/reward.css" -}}
