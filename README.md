@@ -11,7 +11,7 @@ $ cd themes
 $ git clone https://github.com/imroc/xhugo.git
 ```
 
-## Highlight
+## Features
 
 * My favorite black and white color scheme.
 * Perfect support for multi-language.

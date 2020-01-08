@@ -28,7 +28,7 @@
             {{ end }}
           </ul>
           <p class="credits copyright text-muted">
-          &copy;2017-2019
+          &copy;2017-2020
             {{ if .Site.Author.name }}
               {{ if .Site.Author.website }}
                 <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
@@ -37,8 +37,8 @@
               {{ end }}
             {{ end }}
             &nbsp;&bull;&nbsp;
-            {{ .Site.LastChange.Format "January 2,2006" }}
-            updated
+            {{ .Site.LastChange.Format .Site.Params.dateFormat }}
+            {{ i18n "updated" }}
           </p>
           <p class="credits theme-by text-muted">
             {{ i18n "poweredBy" . | safeHTML }}

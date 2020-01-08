@@ -46,3 +46,5 @@
   translation: "已复制!"
 - id: introduce
   translation: "大家好，我是 roc，专注云原生技术领域，不定期分享容器、Kubernetes、Service Mesh 等相关干货。"
+- id: updated
+  translation: "更新"

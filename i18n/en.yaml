@@ -46,3 +46,5 @@
   translation: "Copied"
 - id: introduce
   translation: "Hi, I'm roc，I focus on cloud native technology, and I share containers, Kubernetes, Service Mesh and other related articles from time to time."
+- id: updated
+  translation: "updated"
