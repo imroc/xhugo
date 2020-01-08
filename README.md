@@ -1,16 +1,24 @@
-# X Hugo - A Extremly beautiful theme for Hugo
-demo: https://imroc.io  
-this theme is based on https://github.com/halogenica/beautifulhugo and https://github.com/rootsongjc/rootsongjc-hugo
+# X Hugo - An eXtremly beautiful theme for Hugo
+
+Demo: https://imroc.io  
+
+This theme is based on [beautifulhugo](https://github.com/halogenica/beautifulhugo) and is working in progress.
 
 ## Installation
 
-    $ cd themes
-    $ git clone https://github.com/imroc/xhugo.git
+``` bash
+$ cd themes
+$ git clone https://github.com/imroc/xhugo.git
+```
+
+## Highlight
+
+* My favorite black and white color scheme.
+* Perfect support for multi-language.
+* Search integration using algolia (multi index for multi-language).
+* Monokai style code blocks, and support copy!
 
 See [the Hugo documentation](http://gohugo.io/themes/installing/) for more information.
-
-## Config
-there is a demo in the [exampleSite](exampleSite)
 
 ## License
 
