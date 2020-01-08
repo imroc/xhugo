@@ -39,7 +39,7 @@
   translation: "关闭"
 
 - id: tag
-  translation: "标签："
+  translation: "标签: "
 - id: copy
   translation: "复制"
 - id: copied
