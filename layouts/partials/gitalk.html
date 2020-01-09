@@ -3,6 +3,11 @@
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
+  {{ $id := printf "%s-%s" .File.BaseFileName .File.Lang }}
+  {{ if gt (strings.RuneCount $id) 50 }}
+    {{ $id = md5 $id }}
+  {{ end }}
+  console.log("id:{{ $id }}")
   var gitalk = new Gitalk({
       clientID: '{{.Site.Params.Gitcomment.clientId}}',
       clientSecret: '{{.Site.Params.Gitcomment.clientSecret}}',
@@ -12,7 +17,7 @@
       labels: ['Gitalk'],
       title: '{{ .Title }}',
       createIssueManually: false,
-      id: '{{ .File.BaseFileName }}-{{ .File.Lang }}',
+      id: '{{ $id }}',
       distractionFreeMode: true
   });
   gitalk.render('gitalk-container');
